@@ -51,7 +51,15 @@
 					"raw": "{\n\"sender_point_account_id\":\"1309901131865\",\n\"receive_point_account_id\":\"1209700620251\",\n\"product_id\":\"1\"\n}"
 				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:3000/point-system?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"point-system"
+					]
 				}
 			},
 			"response": []
