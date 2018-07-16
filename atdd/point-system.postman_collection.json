@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "7f90a391-6bf7-44ad-bd57-42988ce69336",
+		"name": "point-system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "have_enough_point",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3a5c33e8-3de8-498a-946b-b13a2fab621e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"sender name\", function () {",
+							"    var slip = pm.response.json();",
+							"    pm.expect(slip.user_name_sender).to.eql(\"พลอย\");",
+							"});",
+							"",
+							"pm.test(\"sender point\", function () {",
+							"    var slip = pm.response.json();",
+							"    pm.expect(slip.product_point).to.eql(70);",
+							"});",
+							"",
+							"pm.test(\"sender balance point\", function () {",
+							"    var slip = pm.response.json();",
+							"    pm.expect(slip.user_point_sender).to.eql(30);",
+							"});",
+							"",
+							"pm.test(\"receiver name\", function () {",
+							"    var slip = pm.response.json();",
+							"    pm.expect(slip.user_name_sender).to.eql(\"ผักกาด\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"sender_point_account_id\":\"1309901131865\",\n\"receive_point_account_id\":\"1209700620251\",\n\"product_id\":\"1\"\n}"
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}
