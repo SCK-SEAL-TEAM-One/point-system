@@ -13,11 +13,12 @@ func Test_ShowPointHandler_Input_User_Id_Should_Be_Point(t *testing.T) {
 	request := httptest.NewRequest("GET", url, nil)
 	responseRecorder := httptest.NewRecorder()
 
-	ShowPointHandler(responseRecorder, request)
+	pointHandler := PointHandler{Point: "100"}
+	pointHandler.ServeHTTP(responseRecorder, request)
 	response := responseRecorder.Result()
 	actual, _ := ioutil.ReadAll(response.Body)
 
-	if string(actual) != expected {
+	if expected != string(actual) {
 		t.Errorf("Expected %s but it got %s", expected, string(actual))
 	}
 }

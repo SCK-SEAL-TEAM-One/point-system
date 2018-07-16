@@ -1,9 +1,14 @@
 package api
 
 import (
+	"fmt"
 	"net/http"
 )
 
-func ShowPointHandler(responseWriter http.ResponseWriter, request *http.Request) {
-	responseWriter.Write([]byte(`{"point":"100"}`))
+type PointHandler struct {
+	Point string
+}
+
+func (ph PointHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, `{"point":"%s"}`, ph.Point)
 }
